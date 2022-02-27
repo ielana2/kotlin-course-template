@@ -24,19 +24,19 @@ class PlayList() {
        videos.add(video)
    }
 
-   fun playNext() {
-       println("Now playing: " + videos[0].title)
-       videos.removeAt(0)
-       println("")
+   fun playNext():String {
+       if (videos.size==0){
+           return "No videos to play"
+       }
+       else{
+            val tmp:String="Now playing: " + videos[0].title
+            videos.removeAt(0)
+            return tmp
+       }
    }
 
-   fun getAllVideos() {
-       println("All videos in playlist:")
-       for (video in videos){
-           println(video.title)
-       }
-
-       println("")
+   fun getAllVideos():MutableList<Video> {
+       return videos
    }
 }
 
@@ -48,20 +48,45 @@ fun main() {
     val firstTvShowEpisode: TvShowEpisode = TvShowEpisode("eps2.1_k3rnel-pan1c.ksd", 2, 3)
     val secondTvShowEpisode: TvShowEpisode = TvShowEpisode("Family Tree", 1, 5)
     val playList: PlayList = PlayList()
+
+    println(playList.playNext())
+    println("")
+
     playList.addVideo(firstMovie)
     playList.addVideo(firstYoutubeVideo)
     playList.addVideo(firstTvShowEpisode)
 
-    playList.getAllVideos()
-    playList.playNext()
+    var tmpVideos: MutableList<Video> = playList.getAllVideos()
+    println("Videos in playlist:")
+    for (video in tmpVideos){
+        println(video.title)
+    }
+    println("")
+
+    println(playList.playNext())
+    println("")
 
     playList.addVideo(secondMovie)
     playList.addVideo(secondYoutubeVideo)
 
-    playList.getAllVideos()
-    playList.playNext()
+    tmpVideos=playList.getAllVideos()
+    println("Videos in playlist:")
+    for (video in tmpVideos){
+        println(video.title)
+    }
+    println("")
+
+    println(playList.playNext())
+    println("")
 
     playList.addVideo(secondTvShowEpisode)
-    playList.getAllVideos()
-    playList.playNext()
+
+    tmpVideos=playList.getAllVideos()
+    println("Videos in playlist:")
+    for (video in tmpVideos){
+        println(video.title)
+    }
+    println("")
+
+    println(playList.playNext())
 }
