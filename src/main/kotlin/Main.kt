@@ -25,7 +25,7 @@ class PlayList() {
    }
 
    fun playNext():String {
-       if (videos.size!=0){
+       if (videos.size != 0){
             val tmp:String="Now playing: " + videos[0].title
             videos.removeAt(0)
             return tmp
@@ -67,7 +67,7 @@ fun main() {
     playList.addVideo(secondMovie)
     playList.addVideo(secondYoutubeVideo)
 
-    tmpVideos=playList.getAllVideos()
+    tmpVideos = playList.getAllVideos()
     println("Videos in playlist:")
     for (video in tmpVideos){
         println(video.title)
@@ -79,7 +79,7 @@ fun main() {
 
     playList.addVideo(secondTvShowEpisode)
 
-    tmpVideos=playList.getAllVideos()
+    tmpVideos = playList.getAllVideos()
     println("Videos in playlist:")
     for (video in tmpVideos){
         println(video.title)
