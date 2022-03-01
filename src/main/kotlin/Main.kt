@@ -25,14 +25,12 @@ class PlayList() {
    }
 
    fun playNext():String {
-       if (videos.size==0){
-           return "No videos to play"
-       }
-       else{
+       if (videos.size!=0){
             val tmp:String="Now playing: " + videos[0].title
             videos.removeAt(0)
             return tmp
        }
+       return ""
    }
 
    fun getAllVideos():MutableList<Video> {
