@@ -25,7 +25,9 @@ class PlayList() {
    }
 
    fun playNext() {
-       videos.removeAt(0)
+       if (videos.size != 0){
+           videos.removeAt(0)
+       }
    }
 
    fun getAllVideos():MutableList<Video> {
@@ -42,10 +44,7 @@ fun main() {
     val secondTvShowEpisode: TvShowEpisode = TvShowEpisode("Family Tree", 1, 5)
     val playList: PlayList = PlayList()
 
-    if (playList.videos.size != 0) {
-        println("Now playing: " + playList.videos[0].title)
-        playList.playNext()
-    }
+    playList.playNext()
     println("")
 
     playList.addVideo(firstMovie)
@@ -59,10 +58,8 @@ fun main() {
     }
     println("")
 
-    if (playList.videos.size != 0) {
-        println("Now playing: " + playList.videos[0].title)
-        playList.playNext()
-    }
+    playList.playNext()
+    println(tmpVideos[0].title)
     println("")
 
     playList.addVideo(secondMovie)
@@ -75,10 +72,8 @@ fun main() {
     }
     println("")
 
-    if (playList.videos.size != 0) {
-        println("Now playing: " + playList.videos[0].title)
-        playList.playNext()
-    }
+    println(tmpVideos[0].title)
+    playList.playNext()
     println("")
 
     playList.addVideo(secondTvShowEpisode)
@@ -90,8 +85,6 @@ fun main() {
     }
     println("")
 
-    if (playList.videos.size != 0) {
-        println("Now playing: " + playList.videos[0].title)
-        playList.playNext()
-    }
+    println(tmpVideos[0].title)
+    playList.playNext()
 }
