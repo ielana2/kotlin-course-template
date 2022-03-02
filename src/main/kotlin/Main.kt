@@ -18,7 +18,7 @@ class YoutubeVideo(title: String, val link: String) : Video(title)
 class TvShowEpisode(title: String, val season: Int, val series: Int) : Video(title)
 
 class PlayList() {
-   val videos: MutableList<Video> = mutableListOf()
+   private val videos: MutableList<Video> = mutableListOf()
 
    fun addVideo(video: Video) {
        videos.add(video)
